@@ -5,9 +5,9 @@
 set -e # stop immediately when an error occurs
 
 # add necessary directories to the system path
-export BXH_DIR=/jukebox/ntb/packages/bxh_xcede_tools/bin
-export MAGICK_HOME=/jukebox/ntb/packages/ImageMagick-6.5.9-9
-export BIAC_HOME=/jukebox/ntb/packages/BIAC_matlab/mr
+export BXH_DIR=/software/bxh-1.10.7/bin
+export MAGICK_HOME=/projects/packages/ImageMagick-6.5.9-9
+export BIAC_HOME=/projects/packages/BIAC_Matlab_R2014a/mr
 
 source scripts/subject_id.sh  # this loads the variable SUBJ
 PROJ_DIR=../../
