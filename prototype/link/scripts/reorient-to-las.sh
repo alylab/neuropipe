@@ -20,20 +20,22 @@ fi
 source globals.sh
 
 nifti_folder=$1
-
 ORIENTATION=LAS
+#cd data/nifti
+for bxh_file in data/nifti/*.bxh; do
 
-for bxh_file in `ls $nifti_folder/*.bxh`; do
-	
+  echo $bxh_file
 	# reorient each scan
   temp=$bxh_file.old_orientation.bxh
   mv $bxh_file $temp
-  bxhreorient --orientation=$ORIENTATION $temp $bxh_file  1>/dev/null 2>/dev/null
+  pwd | ls
+  echo "move"
+  bxhreorient --overwrite --orientation=$ORIENTATION $temp $bxh_file
   rm -f $temp
   
 	# reconvert the scan
   file_prefix=${bxh_file%%.*}
-  bxh2analyze --overwrite --analyzetypes --niigz --niftihdr -s $bxh_file $file_prefix >/dev/null 2>/dev/null
+  bxh2analyze --overwrite --analyzetypes --niigz --niftihdr -s $bxh_file $file_prefix >/dev/null
 done
-  
+echo "done"  
  rm -rf ${nifti_folder}/*.dat
