@@ -6,7 +6,7 @@ set -e # stop immediately when an error occurs
 
 
 # add necessary directories to the system path
-PATH=$PATH:/exanet/ntb/packages/php-5.3.2/sapi/cli  # this is for rondo until php is installed
+PATH=$PATH:/projects/packages/php-5.3.2/sapi/cli
 
 
 PROJECT_DIR=$(pwd)
